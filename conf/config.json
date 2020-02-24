@@ -1,0 +1,32 @@
+{
+    "6610": {
+        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
+        "pid": 1061,
+        "status": 1
+    },
+    "6611": {
+        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
+        "pid": 1109,
+        "status": 1
+    },
+    "6612": {
+        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
+        "pid": 1156,
+        "status": 1
+    },
+    "6613": {
+        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
+        "pid": 1224,
+        "status": -1
+    },
+    "6614": {
+        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
+        "pid": 1322,
+        "status": -1
+    },
+    "6615": {
+        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
+        "pid": 1426,
+        "status": -1
+    }
+}
