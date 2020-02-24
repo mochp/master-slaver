@@ -6,7 +6,7 @@ import json
 import tornado.web
 import tornado.ioloop
 import utils
-from yolo3.yolo import YOLO
+
 
 
 class FileUploadHandler(tornado.web.RequestHandler):
@@ -22,9 +22,12 @@ class FileUploadHandler(tornado.web.RequestHandler):
 
 
 if __name__ == '__main__':
+    
     pid = os.getpid()
-    port, model_path, labels = sys.argv[1], sys.argv[2], sys.argv[3]
+    port, model_path, labels,device = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
     #预先锁定
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(device)
+    from yolo3.yolo import YOLO
     
     model = YOLO(model_path=model_path, labels=labels)
     utils.set_port(port=port, pids=pid, modelPath=model_path, status=-1)

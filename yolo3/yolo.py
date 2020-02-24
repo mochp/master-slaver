@@ -20,10 +20,14 @@ from PIL import Image as pImage
 from yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
 from yolo3.utils import letterbox_image
 from keras.utils import multi_gpu_model
+from random import choices
+
+
+# os.environ["CUDA_VISIBLE_DEVICES"] = str(choices([0,1])[0])
 
 config = tf.ConfigProto()
 # config.gpu_options.allow_growth = True
-config.gpu_options.per_process_gpu_memory_fraction = 0.1
+config.gpu_options.per_process_gpu_memory_fraction = 0.05
 keras.backend.tensorflow_backend.set_session(tf.Session(config=config))
 
 class YOLO(object):

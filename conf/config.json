@@ -1,32 +1,38 @@
 {
-    "6610": {
-        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
-        "pid": 1061,
-        "status": 1
-    },
-    "6611": {
-        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
-        "pid": 1109,
-        "status": 1
-    },
-    "6612": {
-        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
-        "pid": 1156,
-        "status": 1
-    },
-    "6613": {
-        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
-        "pid": 1224,
+    "8881": {
+        "device": 1,
+        "modelPath": "/home/lcong/automl/models/600.h5",
+        "pid": 28778,
         "status": -1
     },
-    "6614": {
-        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
-        "pid": 1322,
+    "8882": {
+        "device": 1,
+        "modelPath": "/home/lcong/automl/models/600.h5",
+        "pid": 28783,
         "status": -1
     },
-    "6615": {
-        "modelPath": "/home/nlp/lmy/shiftmodel/models/600.h5",
-        "pid": 1426,
+    "8883": {
+        "device": 1,
+        "modelPath": "/home/lcong/automl/models/600.h5",
+        "pid": 28787,
+        "status": -1
+    },
+    "8884": {
+        "device": 0,
+        "modelPath": "/home/lcong/automl/models/600.h5",
+        "pid": 28796,
+        "status": -1
+    },
+    "8885": {
+        "device": 0,
+        "modelPath": "/home/lcong/automl/models/600.h5",
+        "pid": 28805,
+        "status": -1
+    },
+    "8886": {
+        "device": 0,
+        "modelPath": "/home/lcong/automl/models/600.h5",
+        "pid": 28811,
         "status": -1
     }
 }

@@ -6,10 +6,12 @@ from conf import config
 import requests
 
 
-def infer(port):
-    url = "http://localhost:8889/master?modelId="+str(port)
-    res = requests.get(url)
+def infer(modelId):
+    params = {'modelId': modelId,'path': "2.png", "if": "0"}
+    url = "http://localhost:8888/app"
+    res = requests.get(url,params=params)
     return res.text
+
 
 
 start = time.time()
@@ -22,12 +24,12 @@ p.join()
 
 print(time.time()-start)
 
-# start = time.time()
-# p = Pool(64)   # 创建4个进程
-# for i in range(500):
-#     p.apply_async(infer, args=(600,))
-# print('Waiting for all subprocesses done...')
-# p.close()
-# p.join()
+start = time.time()
+p = Pool(64)   # 创建4个进程
+for i in range(500):
+    p.apply_async(infer, args=(600,))
+print('Waiting for all subprocesses done...')
+p.close()
+p.join()
 
-# print(time.time()-start)
+print(time.time()-start)
