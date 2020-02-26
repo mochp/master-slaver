@@ -17,7 +17,7 @@ class FileUploadHandler(tornado.web.RequestHandler):
 
         modelId = self.get_query_argument('modelId', 'None') 
         picture_path = self.get_query_argument('path', 'None') 
-        if_master_slaver = self.get_query_argument('if', '0') 
+        if_master_slaver = self.get_query_argument('if', '1') 
 
         assert int(modelId)>0
 
@@ -26,11 +26,10 @@ class FileUploadHandler(tornado.web.RequestHandler):
         if int(if_master_slaver) == 1:
             _ = utils.query_master(modelId,port)
         
-        res = utils.predict(port,picture_path)
-        respon = {"res":res}
+        respon = utils.predict(port,picture_path)
 
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
-        self.write(json.dumps(respon))
+        self.write(respon)
         self.finish()
 
 class StartSlaverHandler(tornado.web.RequestHandler):

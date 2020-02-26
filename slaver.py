@@ -15,9 +15,9 @@ class FileUploadHandler(tornado.web.RequestHandler):
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
         path = self.get_query_argument('path', 'None')
         _, res = model.detect_image(path)
-        respon = {"obj": str(res)}
+        respon = str(res)
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
-        self.write(json.dumps(respon))
+        self.write(respon)
         self.finish()
 
 

@@ -7,26 +7,15 @@ import requests
 
 
 def infer(modelId):
-    params = {'modelId': modelId,'path': "2.png", "if": "0"}
+    params = {'modelId': modelId, 'path': "2.png"}
     url = "http://localhost:8888/app"
-    res = requests.get(url,params=params)
-    return res.text
-
+    res = requests.get(url, params=params)
+    print(res.text)
 
 
 start = time.time()
 p = Pool(64)   # 创建4个进程
-for i in range(1000):
-    p.apply_async(infer, args=(600,))
-print('Waiting for all subprocesses done...')
-p.close()
-p.join()
-
-print(time.time()-start)
-
-start = time.time()
-p = Pool(64)   # 创建4个进程
-for i in range(500):
+for i in range(100):
     p.apply_async(infer, args=(600,))
 print('Waiting for all subprocesses done...')
 p.close()
