@@ -10,6 +10,24 @@ import utils
 from random import choices
 from conf import config
 
+class FileSizeHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.set_header('Access-Control-Allow-Origin', '*')
+        self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+        modelSize = self.get_query_argument("modelSize", "none")
+        modelPath = self.get_query_argument("modelPath", "none")
+        rate = int(os.path.getsize(modelPath))/int(modelSize)
+        rate = '%.2f' % rate
+        result = {
+            "status": 1,
+            "result": rate
+        }
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        self.write(json.dumps(result))
+        self.finish()
+
+
+
 class FileUploadHandler(tornado.web.RequestHandler):
     def get(self):
         self.set_header('Access-Control-Allow-Origin', '*')
@@ -57,7 +75,8 @@ class StopSlaverHandler(tornado.web.RequestHandler):
 app = tornado.web.Application([
     (r'/app', FileUploadHandler),
     (r'/start', StartSlaverHandler),
-    (r'/stop', StopSlaverHandler)
+    (r'/stop', StopSlaverHandler),
+    (r'/rate', FileSizeHandler)
 ])
 
 if __name__ == '__main__': 

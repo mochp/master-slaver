@@ -2,37 +2,37 @@
     "8881": {
         "device": 1,
         "modelPath": "/home/lcong/automl/models/600.h5",
-        "pid": 28326,
+        "pid": 27755,
         "status": -1
     },
     "8882": {
         "device": 1,
         "modelPath": "/home/lcong/automl/models/600.h5",
-        "pid": 28329,
+        "pid": 27760,
         "status": -1
     },
     "8883": {
         "device": 1,
         "modelPath": "/home/lcong/automl/models/600.h5",
-        "pid": 28344,
+        "pid": 27765,
         "status": -1
     },
     "8884": {
         "device": 1,
         "modelPath": "/home/lcong/automl/models/600.h5",
-        "pid": 28362,
+        "pid": 27774,
         "status": -1
     },
     "8885": {
         "device": 1,
         "modelPath": "/home/lcong/automl/models/600.h5",
-        "pid": 28368,
+        "pid": 27783,
         "status": -1
     },
     "8886": {
         "device": 1,
         "modelPath": "/home/lcong/automl/models/600.h5",
-        "pid": 28373,
+        "pid": 27789,
         "status": -1
     }
 }
