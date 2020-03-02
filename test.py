@@ -16,7 +16,7 @@ def infer(modelId):
 start = time.time()
 p = Pool(64)   # 创建4个进程
 for i in range(100):
-    p.apply_async(infer, args=(600,))
+    p.apply_async(infer, args=(685,))
 print('Waiting for all subprocesses done...')
 p.close()
 p.join()

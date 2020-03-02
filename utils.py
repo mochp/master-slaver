@@ -6,6 +6,7 @@ import json
 import time
 import requests
 from conf import config
+from sql import getMenuFeature
 
 
 def create_json(ports, devices):
@@ -147,8 +148,11 @@ def setting_port_success(port):
 def modelId_to_labels(modelID):
     if int(modelID) == 600:
         return config.LABELS_LIAN
-    if int(modelID) == 400:
+    elif int(modelID) == 400:
         return config.LABELS_SIFANG
+    else:
+        _, label = getMenuFeature(modelID)
+        return label
 
 
 def predict(port, path):
@@ -161,7 +165,8 @@ def query_master(modelId, port):
     payload = {'modelId': modelId, 'port': port, "if": "0"}
     ret = requests.get("http://localhost:" +
                        str(config.PORTS_MASTER)+"/master", params=payload)
-    print(ret.text)
+    return ret.text
+
 
 
 def command(status):

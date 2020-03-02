@@ -58,9 +58,12 @@ class FileUploadHandler(tornado.web.RequestHandler):
         port = choices(config.PORTS_SLAVERS)[0]
 
         if int(if_master_slaver) == 1:
-            _ = utils.query_master(modelId, port)
-
-        respon = utils.predict(port, picture_path)
+            status = utils.query_master(modelId, port)
+        print("status:",status)
+        if int(eval(status))==1:
+            respon = utils.predict(port, picture_path)
+        else:
+            respon = "wrong id"
 
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         self.write(respon)

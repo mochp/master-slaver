@@ -23,17 +23,18 @@ class FileUploadHandler(tornado.web.RequestHandler):
         assert int(port) > 0
 
         if utils.check_port_is_modelId(port, modelId):
-            res = "ok"
+            res = 1
         else:
             print("shifting...")
-            utils.shift_port_to_modelId(port, modelId)
-            utils.waiting_port_ready(port)
-            res = "ok"
-
-        respon = {"res": res}
+            try:
+                utils.shift_port_to_modelId(port, modelId)
+                utils.waiting_port_ready(port)
+                res = 1 #success
+            except:
+                res = 0 #failture
 
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
-        self.write(json.dumps(respon))
+        self.write(json.dumps(str(res)))
         self.finish()
 
 
