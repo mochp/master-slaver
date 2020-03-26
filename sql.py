@@ -1,6 +1,6 @@
 import pymysql
 
-conn = pymysql.connect(host='172.18.89.119', port=3306, user='root', passwd='10NsS2mM!@#$', db='automl',charset='utf8')
+
 
 
 class Param:
@@ -10,6 +10,7 @@ class Param:
 
 
 def getMenuFeature(modlId):
+    conn = pymysql.connect(host='172.18.89.119', port=3306, user='root', passwd='10NsS2mM!@#$', db='automl',charset='utf8')
     cur = conn.cursor()
     cur.execute(
         "select model_file_path from model_info where model_id ='%s';" % (
@@ -17,7 +18,7 @@ def getMenuFeature(modlId):
     cur.rowcount
     modelPath = cur.fetchall()
     cur.execute(
-        "select label_value from model_label where model_id = '%s';" % (
+        "select label_value from model_label where model_id = '%s' order by id desc;" % (
             modlId))
     labelList = list(cur.fetchall())
     cur.close()
@@ -31,7 +32,7 @@ def getMenuFeature(modlId):
 
 if __name__ == "__main__":
     import os
-    model_old_path, label = getMenuFeature(685)
+    model_old_path, label = getMenuFeature(767)
     model_path = os.path.join("~/modelFile", os.path.split(model_old_path)[-1])
     print(model_path)
     print(label)

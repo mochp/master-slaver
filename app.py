@@ -17,12 +17,18 @@ class FileSizeHandler(tornado.web.RequestHandler):
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
         modelSize = self.get_query_argument("modelSize", "none")
         modelPath = self.get_query_argument("modelPath", "none")
-        rate = int(os.path.getsize(modelPath))/int(modelSize)
-        rate = '%.2f' % rate
-        result = {
-            "status": 1,
-            "result": rate
-        }
+        try:
+            rate = int(os.path.getsize(modelPath))/int(modelSize)
+            rate = '%.2f' % rate
+            result = {
+                "status": 1,
+                "result": str(rate)
+            }
+        except:
+            result = {
+                "status": 1,
+                "result": str(0.0)
+            }            
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         self.write(json.dumps(result))
         self.finish()

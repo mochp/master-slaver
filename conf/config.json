@@ -1,20 +1,20 @@
 {
     "8884": {
         "device": 1,
-        "modelPath": "/home/lcong/modelFile/685.h5",
-        "pid": 18182,
+        "modelPath": "/home/lcong/modelFile/767.h5",
+        "pid": 27090,
         "status": -1
     },
     "8885": {
         "device": 1,
-        "modelPath": "/home/lcong/modelFile/685.h5",
-        "pid": 18933,
+        "modelPath": "/home/lcong/modelFile/767.h5",
+        "pid": 21038,
         "status": -1
     },
     "8886": {
         "device": 1,
-        "modelPath": "/home/lcong/modelFile/685.h5",
-        "pid": 18552,
+        "modelPath": "/home/lcong/modelFile/767.h5",
+        "pid": 18326,
         "status": -1
     }
 }

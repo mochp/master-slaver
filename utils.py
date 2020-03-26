@@ -148,6 +148,8 @@ def setting_port_success(port):
 def modelId_to_labels(modelID):
     if int(modelID) == 600:
         return config.LABELS_LIAN
+    if int(modelID) == 500:
+        return config.LABELS_LIAN
     elif int(modelID) == 400:
         return config.LABELS_SIFANG
     else:
